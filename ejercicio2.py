@@ -42,6 +42,6 @@ class Voltear(QMainWindow):
 if __name__ == '__main__':
     # Inicializar la aplicación
     app = QApplication(sys.argv)
-    window = Voltear()
-    window.show()
+    ventana = Voltear()
+    ventana.show()
     sys.exit(app.exec())
