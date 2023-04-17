@@ -1,24 +1,30 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QLineEdit
+from PyQt6.QtCore import QSize
+from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QLineEdit, QVBoxLayout, QWidget
 
 class Primo(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Verificar número primo')
-        self.setGeometry(100, 100, 400, 300)
+        self.setFixedSize(QSize(400,200))
+        caja = QVBoxLayout()
 
-        self.texto = QLabel('Ingresa un número:', self)
-        self.texto.move(50, 50)
-
+        self.texto = QLabel('Ingresa un número:')
         self.numero = QLineEdit(self)
-        self.numero.setGeometry(50, 80, 200, 25)
 
         self.boton = QPushButton('Verificar', self)
-        self.boton.setGeometry(50, 120, 100, 25)
         self.boton.clicked.connect(self.verificarPrimo)
 
         self.resultado = QLabel('', self)
-        self.resultado.move(50, 160)
+
+        caja.addWidget(self.texto)
+        caja.addWidget(self.numero)
+        caja.addWidget(self.boton)
+        caja.addWidget(self.resultado)
+
+        ventana = QWidget()
+        ventana.setLayout(caja)
+        self.setCentralWidget(ventana)
 
     def verificarPrimo(self):
         num = int(self.numero.text())
@@ -34,6 +40,6 @@ class Primo(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = Primo()
-    window.show()
+    ventana = Primo()
+    ventana.show()
     sys.exit(app.exec())

@@ -1,32 +1,33 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+from PyQt6.QtCore import QSize
+from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QLineEdit, QVBoxLayout, QWidget
 
-class Voltear(QWidget):
+class Voltear(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.initGUI()
-
-    def initGUI(self):
-        # Crear los widgets
-        self.palabra = QLineEdit()
-        self.alreves = QLabel()
-
-        voltear = QPushButton('Voltear la palabra')
-        voltear.clicked.connect(self.reverse_word)
-
-        # Layout
-        vbox = QVBoxLayout()
-        vbox.addWidget(self.palabra)
-        vbox.addWidget(voltear)
-        vbox.addWidget(self.alreves)
-
-        # Set layout
-        self.setLayout(vbox)
-
-        # Set propiedades de la ventana
         self.setWindowTitle('Volteador de palabras')
-        self.setGeometry(100, 100, 300, 200)
-        self.show()
+        self.setFixedSize(QSize(400,200))
+        caja = QVBoxLayout()
+
+        self.texto = QLabel('Ingresa una palabra:')
+        self.palabra = QLineEdit(self)
+        self.alreves = QLabel(self)
+
+        self.voltear = QPushButton('Voltear la palabra', self)
+        self.voltear.clicked.connect(self.reverse_word)
+
+        self.texto1 = QLabel('La palabra al revés es:')
+
+        caja.addWidget(self.texto)
+        caja.addWidget(self.palabra)
+        caja.addWidget(self.voltear)
+        caja.addWidget(self.texto1)
+        caja.addWidget(self.alreves)
+
+        ventana = QWidget()
+        ventana.setLayout(caja)
+        self.setCentralWidget(ventana)
+
 
     def reverse_word(self):
         # Obtener la palabra ingresada por el usuario
@@ -41,5 +42,6 @@ class Voltear(QWidget):
 if __name__ == '__main__':
     # Inicializar la aplicación
     app = QApplication(sys.argv)
-    ex = Voltear()
+    ventana = Voltear()
+    ventana.show()
     sys.exit(app.exec())
