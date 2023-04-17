@@ -40,6 +40,6 @@ class Primo(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = Primo()
-    window.show()
+    ventana = Primo()
+    ventana.show()
     sys.exit(app.exec())
