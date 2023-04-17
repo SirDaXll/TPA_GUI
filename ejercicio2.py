@@ -16,13 +16,13 @@ class Voltear(QMainWindow):
         self.voltear = QPushButton('Voltear la palabra', self)
         self.voltear.clicked.connect(self.reverse_word)
 
-        self.resultado = QLabel('', self)
+        self.texto1 = QLabel('La palabra al revés es:')
 
         caja.addWidget(self.texto)
         caja.addWidget(self.palabra)
-        caja.addWidget(self.alreves)
         caja.addWidget(self.voltear)
-        caja.addWidget(self.resultado)
+        caja.addWidget(self.texto1)
+        caja.addWidget(self.alreves)
 
         ventana = QWidget()
         ventana.setLayout(caja)
