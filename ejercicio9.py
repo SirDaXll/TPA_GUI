@@ -44,25 +44,26 @@ class VentanaPrincipal(QMainWindow):
 
         #creamos la lista para usar
         self.lista= []
-        
-        
-        
+
     #Primera forma de manejar eventos
     def lista(self):
         #traemos los atributos
         nombre = self.nombre.text()
-        apellido = self.nombre.text()
+        apellido = self.apellido.text()
 
+        #llamamos a la funcion
         persona = Persona(nombre, apellido)
 
+        #añadimos el nombre completo a la lista
         self.lista.append(persona)
 
-
-        
+        #Comprobacion de la lista
+        for elemento in self.lista:
+            print(elemento.nombre, elemento.apellido)
+   
     def limpiar(self):
         self.nombre.setText("")
-        self.apellido.setText("")
-        
+        self.apellido.setText("")  
 
 # Main
 if __name__ == "__main__":
