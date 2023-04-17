@@ -21,7 +21,7 @@ class Primo(QMainWindow):
         self.resultado.move(50, 160)
 
     def verificarPrimo(self):
-        num = int(self.input.text())
+        num = int(self.numero.text())
         if num > 1:
             for i in range(2, num):
                 if num % i == 0:
