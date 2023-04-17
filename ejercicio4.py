@@ -7,15 +7,15 @@ class Primo(QMainWindow):
         self.setWindowTitle('Verificar número primo')
         self.setGeometry(100, 100, 400, 300)
 
-        self.label = QLabel('Ingresa un número:', self)
-        self.label.move(50, 50)
+        self.texto = QLabel('Ingresa un número:', self)
+        self.texto.move(50, 50)
 
-        self.input = QLineEdit(self)
-        self.input.setGeometry(50, 80, 200, 25)
+        self.numero = QLineEdit(self)
+        self.numero.setGeometry(50, 80, 200, 25)
 
-        self.button = QPushButton('Verificar', self)
-        self.button.setGeometry(50, 120, 100, 25)
-        self.button.clicked.connect(self.verificarPrimo)
+        self.boton = QPushButton('Verificar', self)
+        self.boton.setGeometry(50, 120, 100, 25)
+        self.boton.clicked.connect(self.verificarPrimo)
 
         self.resultado = QLabel('', self)
         self.resultado.move(50, 160)
