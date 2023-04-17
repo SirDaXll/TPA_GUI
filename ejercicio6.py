@@ -2,7 +2,7 @@ import sys
 from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QLineEdit, QVBoxLayout, QWidget
 
-class Primo(QMainWindow):
+class Fruta(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Lista de frutas')
@@ -35,6 +35,6 @@ class Primo(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = Primo()
+    window = Fruta()
     window.show()
     sys.exit(app.exec())
