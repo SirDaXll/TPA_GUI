@@ -1,6 +1,7 @@
 import sys
 import random
 
+#importamos la libreria Qcolor de PyQt para agregar estilos de colores
 from PyQt6.QtGui import QColor
 from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
@@ -22,14 +23,20 @@ class VentanaPrincipal(QMainWindow):
         
     #Primera forma de manejar eventos
     def cambiarColor(self):
+
+        #asignamos un valor random a cada valor de RGB para mezclar colores
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = QColor(r, g, b)
 
+        #variable auxiliar para generar el color deseado
         estilo = f"background-color: rgb({color.red()}, {color.green()}, {color.blue()});"
 
+        #agregamos el estilo al boton
         self.boton.setStyleSheet(estilo)
+
+        
 # Main
 if __name__ == "__main__":
     app = QApplication(sys.argv)
